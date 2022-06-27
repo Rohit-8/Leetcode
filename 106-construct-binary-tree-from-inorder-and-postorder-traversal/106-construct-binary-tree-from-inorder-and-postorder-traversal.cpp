@@ -22,7 +22,6 @@ public:
         
         root->left = res(pr, in, ps, ps + leftnode - 1, ins, vl-1);
         root->right = res(pr,in, ps + leftnode,  pe-1,vl+1 , ine);
-        
         return root;
     }
     
