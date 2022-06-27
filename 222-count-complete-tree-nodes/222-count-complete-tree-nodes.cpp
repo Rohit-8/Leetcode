@@ -31,6 +31,7 @@ public:
     
     int countNodes(TreeNode* root) {
         if(root == NULL) return 0;
+        
         int lh = lefth(root);
         int rh = righth(root);
 
