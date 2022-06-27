@@ -26,7 +26,6 @@ public:
     }
     
     TreeNode* buildTree(vector<int>& in, vector<int>& pr) {
-        
         for(int i = 0; i < in.size(); i++)
             m[in[i]] = i;
         
