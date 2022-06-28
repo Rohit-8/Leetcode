@@ -26,6 +26,7 @@ public:
                 ri->left = le;
                 break;
             }
+            
             if(root->val > key){
                 prev = root;
                 root = root->left;
