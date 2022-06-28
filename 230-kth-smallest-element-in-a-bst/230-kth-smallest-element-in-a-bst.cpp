@@ -16,6 +16,7 @@ public:
         if(root == NULL) return ;
         inorder(root->left);
         c--;
+        
         if(c == 0){
             ans = root->val;
             return;
