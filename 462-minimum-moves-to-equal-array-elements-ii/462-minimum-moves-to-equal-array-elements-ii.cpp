@@ -1,8 +1,8 @@
 class Solution {
 public:
     int minMoves2(vector<int>& a) {
-        sort(a.begin(), a.end());
         
+        sort(a.begin(), a.end());
         int sum = a[a.size()/2];
         
         long long ans = 0;
