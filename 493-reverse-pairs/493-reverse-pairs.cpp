@@ -1,6 +1,5 @@
 class Solution {
 public:
-    
     int merge(vector<int> &a, int l, int mid, int r){
         int c = 0, j = mid + 1;
         for(int i = l; i <= mid; i++){
