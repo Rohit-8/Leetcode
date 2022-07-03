@@ -1,41 +1,23 @@
+#define ll long long
+#include <ext/pb_ds/assoc_container.hpp>
+#include <ext/pb_ds/tree_policy.hpp>
+
+using namespace __gnu_pbds;
+
 class Solution {
 public:
-    int merge(vector<int> &a, int l, int mid, int r){
-        int c = 0, j = mid + 1;
-        for(int i = l; i <= mid; i++){
-            while(j <= r and a[i] > 2ll * a[j])
-                j ++;
-            c += j-mid-1;
+    int reversePairs(vector<int>& arr) {
+        tree<pair<ll,ll>, null_type, less<pair<ll,ll>>, rb_tree_tag, tree_order_statistics_node_update> st;
+        st.insert({0ll + arr[0], 0ll});
+        ll ans = 0;
+        int n = arr.size();
+        
+        for(int i = 1; i < n; i++){
+            
+            int smaller = st.order_of_key({2ll * arr[i], i});
+            ans += ((ll)st.size() - smaller);
+            st.insert({0ll + arr[i], 0ll + i});
         }
-        
-        vector<int> t;
-        int left = l, right = mid + 1;
-        while(left <= mid and right <= r){
-            if(a[left] <= a[right])
-                t.push_back(a[left++]);
-            else t.push_back(a[right++]);
-        }
-        
-        while(left <= mid) t.push_back(a[left++]);
-        while(right <= r) t.push_back(a[right++]);
-        
-        for(int i = l; i <= r; i++)
-            a[i] = t[i - l];
-        
-        return c;
-    }
-    int mergesort(vector<int> &a, int l , int r){
-        if(l >= r) return 0;
-        
-        int mid = l + (r-l)/2;
-        int inv = mergesort(a, l, mid);
-        inv += mergesort(a, mid+1, r);
-        inv += merge(a, l, mid, r);
-        
-        return inv;
-    }
-    
-    int reversePairs(vector<int>& a) {
-        return mergesort(a, 0, a.size()-1);
+        return ans;
     }
 };
