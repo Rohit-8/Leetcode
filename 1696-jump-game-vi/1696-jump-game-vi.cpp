@@ -19,7 +19,6 @@ public:
             
             dq.push_back(i); 
         }
-        
         return dp[n-1];
     }
 };
