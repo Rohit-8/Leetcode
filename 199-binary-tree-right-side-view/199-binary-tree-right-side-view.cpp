@@ -19,6 +19,7 @@ public:
         
         if(level == ans.size()) ans.push_back(root->val);
         traverse(root->right, level+1);
+        
         traverse(root->left, level+1);
         
     }
