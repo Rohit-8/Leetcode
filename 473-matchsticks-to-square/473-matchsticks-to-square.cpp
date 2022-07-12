@@ -9,7 +9,6 @@ public:
           for(int i =0; i<4; i++){
               if(m[idx] > s[i]) continue;
               s[i] -= m[idx];
-              
               if(solve(m, idx + 1, s)) return true;
               s[i] += m[idx];
           }
