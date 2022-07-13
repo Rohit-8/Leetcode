@@ -14,8 +14,8 @@ public:
         int end = -1;
         while(l <= r){
             int mid = l + (r-l)/2;
-            if(a[mid] > t) r = mid-1;
             
+            if(a[mid] > t) r = mid-1;
             else if(a[mid] < t) l = mid+1;
             else end = mid, l = mid+1;
         }
