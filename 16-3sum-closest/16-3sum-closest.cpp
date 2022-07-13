@@ -7,6 +7,10 @@ public:
         int ans = INT_MAX;
         int prev = INT_MAX;
         for(int i = 0; i < n - 2; i++){
+            
+            if(i > 0 && a[i] == a[i-1]) 
+                continue;
+            
             int j = i + 1, k = n-1;
             
             int sum = 0;
