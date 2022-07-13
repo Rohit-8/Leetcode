@@ -6,9 +6,10 @@ public:
     void res(vector<int> &a, int t, int n, vector<int> &v, int &sum, int i){
         
         if(sum == t){
-            st.insert(v);
+            ans.push_back(v);
             return;
         }
+        
         if(i >= n) return;
         
         for( ; i < n; i ++){
@@ -34,8 +35,8 @@ public:
         int sum = 0;
         res(a, t, a.size(), v, sum, 0);
         
-        for(auto x: st)
-            ans.push_back(x);
+        // for(auto x: st)
+        //     ans.push_back(x);
         
         return ans;
     }
