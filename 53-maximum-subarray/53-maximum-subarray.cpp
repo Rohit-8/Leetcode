@@ -8,7 +8,6 @@ public:
             sum = max(sum + a[i], a[i]);
             ans = max(ans, sum);
         }
-        
         return ans;
     }
 };
