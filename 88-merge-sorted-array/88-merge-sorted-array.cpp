@@ -13,6 +13,6 @@ public:
         while(j>=0){
             a[i--] = b[j--];
         }
-        
+        return;
     }
 };
