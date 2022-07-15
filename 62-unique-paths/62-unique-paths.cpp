@@ -5,7 +5,7 @@ public:
         
         for(int i = 0; i < m; i++)
             dp[i] = 1;
-        int prev = 1;
+        int prev = 0;
         for(int i = 1; i < n; i++){
             vector<int> p(m); prev = 0;
             for(int j = 0; j < m; j++){
