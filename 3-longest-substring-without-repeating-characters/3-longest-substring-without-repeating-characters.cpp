@@ -19,7 +19,6 @@ public:
             m[s[i]] = 1;
             ans = max(ans, (int)m.size());
         }
-        
         return ans;
     }
 };
