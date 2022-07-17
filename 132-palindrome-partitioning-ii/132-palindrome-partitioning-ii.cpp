@@ -24,7 +24,6 @@ public:
         for(int k = i; k < j; k++){
     
             if(ispal(s, i, k)){
-                
                 int t = 1 + res(s,k+1,j, dp);
                 temp = min(t,temp);
             }
