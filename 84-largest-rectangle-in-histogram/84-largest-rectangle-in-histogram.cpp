@@ -16,8 +16,6 @@ public:
         }
         while(!s.empty()) s.pop();
         
-        // for(int i = 0; i< n;i++) cout<<l[i]<<" ";
-        // cout<<endl;
         for(long long i = n-1; i>=0; i--){
             
             while(!s.empty() and arr[s.top()] >= arr[i]) s.pop();
