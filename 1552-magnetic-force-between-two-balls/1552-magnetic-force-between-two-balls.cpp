@@ -1,6 +1,6 @@
 class Solution {
 public:
-    bool res(int val,vector<int>& a, int m, int &ans){
+    bool res(int val,vector<int>& a, int m){
         int prev = a[0];
         int c = 1;
         int mn = INT_MAX;
@@ -26,7 +26,7 @@ public:
         while(l <= r){
             int mid = l + (r-l)/ 2;
 
-            if(res(mid, a, m, ans)){
+            if(res(mid, a, m)){
                 ans = mid;
                 l = mid+1;
             }
