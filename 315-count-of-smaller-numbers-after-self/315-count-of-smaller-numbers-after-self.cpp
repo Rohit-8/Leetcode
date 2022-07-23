@@ -10,8 +10,8 @@ public:
             p.insert(a[i]);
             ans[i] = p.order_of_key(a[i]);
         }
-        return ans;
         
+        return ans;
         
     }
 };
