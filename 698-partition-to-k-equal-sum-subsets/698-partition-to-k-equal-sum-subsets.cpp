@@ -10,7 +10,6 @@ public:
         if(sum == cc)
             return res(a, k-1, n, v, 0, 0);
         
-        
         for(; i < n; i++){
             if(a[i] + sum <= cc and v[i] == false){
                 v[i] = true;
