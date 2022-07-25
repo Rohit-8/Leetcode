@@ -10,6 +10,7 @@ public:
             else if(a[mid] < t) l = mid+1;
             else st = mid, r = mid-1;
         }
+        
         l = 0, r = n-1;
         int end = -1;
         while(l <= r){
