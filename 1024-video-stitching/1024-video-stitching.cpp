@@ -22,6 +22,7 @@ public:
         
         dp.resize(101, vector<int> (105, -1));
         int ans = res(a, t, 0, 0);
+        
         if(ans >= 1000000000) return -1;
         
         return ans;
