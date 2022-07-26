@@ -20,7 +20,7 @@ public:
     int videoStitching(vector<vector<int>>& a, int t) {
         sort(begin(a), end(a));
         
-        dp.resize(101, vector<int> (105, -1));
+        dp.resize(a.size() + 1, vector<int> (t + 1, -1));
         int ans = res(a, t, 0, 0);
         
         if(ans >= 1000000000) return -1;
