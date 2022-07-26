@@ -11,7 +11,6 @@ class Solution {
 public:
     
     bool path(TreeNode* root,vector<TreeNode*> &ans, TreeNode* x){
-        
         if(root == NULL) return false;
         
         ans.push_back(root);
