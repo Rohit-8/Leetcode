@@ -2,6 +2,7 @@ class Solution {
 public:
     
     vector<vector<int>> dp;
+    
     int res(vector<int> &a, int i, int j){
         if(i == j) return a[i];
         if(i > j) return 0;
