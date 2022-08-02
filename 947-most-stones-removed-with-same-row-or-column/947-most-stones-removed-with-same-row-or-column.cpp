@@ -32,7 +32,6 @@ public:
         int n = st.size();
         setParRank(n + 1);
         
-        set<int> s;
         for(int i=0;i<n;i++){
             for(int j=0;j<i;j++){
                 if(st[i][0] == st[j][0] or st[i][1] == st[j][1])
