@@ -1,5 +1,6 @@
 class Solution {
 public:
+    
     vector<int> vis;
     vector<vector<int>> adj;
     unordered_map<int,int> m;
