@@ -17,7 +17,6 @@ public:
         }
         
         m[node] = v;
-        
     }
     
     vector<bool> checkIfPrerequisite(int n, vector<vector<int>>& a, vector<vector<int>>& q) {
