@@ -2,7 +2,7 @@ class Solution {
 public:
     vector<vector<int>> adj;
     vector<int> vis;
-    map<int,set<int>> m;
+    unordered_map<int,set<int>> m;
     
     void dfs(int node){
         if(vis[node] == 1) return;
