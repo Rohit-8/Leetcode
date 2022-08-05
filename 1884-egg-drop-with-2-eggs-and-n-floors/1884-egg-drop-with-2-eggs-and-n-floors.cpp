@@ -2,7 +2,6 @@ class Solution {
 public:
     
     vector<vector<int>> dp;
-    
     int mcm(int egg, int f){
         if(f == 1 or f == 0) return f;
         if(egg == 1) return f;
