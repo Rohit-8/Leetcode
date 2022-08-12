@@ -1,17 +1,6 @@
 class Solution {
 public:
     
-    void res(TreeNode* root, int x, vector<TreeNode*> &v){
-        if(root == NULL) return;
-        v.push_back(root);
-        if(root->val == x)
-            return;
-        
-        if(root->val > x) res(root->left, x, v);
-        else res(root->right, x, v);
-        return;
-    }
-    
     TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
         if(root == q or root == p) return root;
         
