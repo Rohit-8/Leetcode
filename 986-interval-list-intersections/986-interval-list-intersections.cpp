@@ -15,7 +15,6 @@ public:
             }
             else if(sl[i][0] > fl[j][1]) j++;
             else i++;
-            
         }
         
         return ans;
