@@ -13,17 +13,13 @@ public:
     }
     
     TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
-        TreeNode* ans;
-        vector<TreeNode*> v1, v2;
-        res(root, p->val, v1);
-        res(root, q->val, v2);
+        if(root == q or root == p) return root;
         
-        for(int i = 0; i < min(v1.size(), v2.size()); i++){
-            if(v1[i] != v2[i]) break;
-            ans = v1[i];
-        }
+        if(root->val > min(p->val, q->val) and root->val < max(p->val, q->val)) return root;
         
-        return ans;
+        if(root->val > p->val) return lowestCommonAncestor(root->left, p, q);
+        
+        return lowestCommonAncestor(root->right, p, q);
     }
 };
 /**
