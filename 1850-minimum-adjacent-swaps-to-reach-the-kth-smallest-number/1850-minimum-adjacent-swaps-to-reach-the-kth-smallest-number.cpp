@@ -21,7 +21,7 @@ public:
         return a;
     }
     
-    int getMinSwaps(string a, int k) {
+    int getMinSwaps(string &a, int k) {
         string s = a;
         for(int i = 0; i < k; i++){
             solve(s);
