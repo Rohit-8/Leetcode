@@ -7,6 +7,7 @@ public:
     
     void dfs(int in,vector<string> &nums,vector<string>& wordList){
         if(in==-1){
+            
             vector<string> arr = nums; arr.push_back(bg);
             reverse(arr.begin(),arr.end());  re.push_back(arr); 
             return;
@@ -15,6 +16,7 @@ public:
         for(int i = 0; i<prev[in].size();++i){
             dfs(prev[in][i],nums,wordList);
         }
+        
         nums.pop_back();
     }
     
