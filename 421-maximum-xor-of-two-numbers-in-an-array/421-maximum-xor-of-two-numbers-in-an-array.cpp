@@ -28,14 +28,12 @@ int find(int a){
     int ans = 0;
     for(int i = 31; i >= 0; i--){
         int bit = ((a >> i) & 1);
-        bit = !bit;
-        if(!node->containsKey(bit)){
-            bit = !bit;
+        if(node->containsKey(1 - bit)){
+            ans = ans | (1<<i);
+            node = node->get(1 - bit);
         }
-        else {
-            ans += (1<<i);
-        }
-        node = node->get(bit);
+        else
+            node = node->get(bit);
     }
     return ans;
 }
