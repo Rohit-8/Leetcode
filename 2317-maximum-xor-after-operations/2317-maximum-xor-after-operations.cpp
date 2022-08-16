@@ -4,6 +4,7 @@ public:
         int n = a.size(), mn = 0;
         for(int i = 0; i < n; i++)
             mn = max(a[i], mn);
+        
         int x = mn;
         for(int i = 31; i >= 0; i--){
             if(mn  & (1 << i)) continue;
