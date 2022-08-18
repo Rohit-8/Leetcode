@@ -14,7 +14,7 @@ public:
     }
     
     bool isAdditiveNumber(string a) {
-        for(int i = 1; i < a.size() - 1; i++){
+        for(int i = 1; i <= a.size()/2; i++){
             
             long long l = stol(a.substr(0, i));
             if(to_string(l) != a.substr(0, i)){
