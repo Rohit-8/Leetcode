@@ -10,7 +10,7 @@ public:
         for(int i = 0; i < n; i++){
             for(int j = i; j < n; j++){
                 if(j == i) pre[k++] = a[j];
-                else pre[k] = (pre[k-1] + a[j]) % mod, k++;
+                else pre[k++] = (pre[k-1] + a[j]) % mod;
             }
         }
         
