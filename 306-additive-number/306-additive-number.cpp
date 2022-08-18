@@ -7,6 +7,7 @@ public:
         
         string sum = to_string(l+r);
         int n = min(s.size(), sum.size());
+        
         if(s.substr(0, n) == sum){
             return res(r, stol(sum), s.substr(n), true);
         }
