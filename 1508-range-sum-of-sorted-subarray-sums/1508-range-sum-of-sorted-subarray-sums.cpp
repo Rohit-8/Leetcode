@@ -3,7 +3,7 @@ public:
     int mod = 1000000007;
     
     int rangeSum(vector<int>& a, int n, int l, int r) {
-        // int n = a.size();
+        
         int m = n * (n + 1) / 2;
         vector<int> pre(m, 0);
         int k = 0;
@@ -19,7 +19,6 @@ public:
         int ans = 0;
         for(int i = l; i <= r; i++){
             ans = (ans + pre[i]) % mod;
-            cout<<pre[i]<<" ";
         }
         
         return ans;
