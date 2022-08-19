@@ -17,6 +17,7 @@ public:
                 val++;
                 c++;
             }
+            
             if(c < 3) return false;
         }
         return true;
