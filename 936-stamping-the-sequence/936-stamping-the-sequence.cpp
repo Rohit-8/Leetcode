@@ -42,7 +42,6 @@ public:
                 break;
             }
         }
-        
         reverse(res.begin(), res.end());
         if(tot == tar.size()){
             return res;
