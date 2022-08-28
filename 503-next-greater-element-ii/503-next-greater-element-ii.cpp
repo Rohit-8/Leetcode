@@ -4,7 +4,7 @@ public:
         vector<int> ans;
         stack<int> s;
         int n = a.size();
-        vector<int> r;
+        // vector<int> r;
         
         for(int i = 0; i < n; i++){
             a.push_back(a[i]);
