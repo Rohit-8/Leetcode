@@ -6,11 +6,11 @@ public:
         int n = a.size();
         // vector<int> r;
         
-        for(int i = 0; i < n; i++){
-            a.push_back(a[i]);
-        }
+        // for(int i = 0; i < n; i++){
+        //     a.push_back(a[i]);
+        // }
         int j = 0;
-        for(int i = n + n - 1; i >= n; i--)
+        for(int i = n - 1; i >= 0; i--)
         {
             while(!s.empty() && s.top() <= a[i])
                 s.pop();
@@ -22,7 +22,7 @@ public:
             }
             int flag = 0;
             
-            while(i - j > n)
+            while(i - j > 0)
             {
                 if(a[j] > a[i])
                 {
