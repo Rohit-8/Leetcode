@@ -1,7 +1,7 @@
 class Solution {
 public:
     vector<int> nextGreaterElements(vector<int>& a) {
-        vector<int> ans;
+        // vector<int> ans;
         stack<int> s;
         int n = a.size();
         // vector<int> r;
@@ -9,15 +9,17 @@ public:
         // for(int i = 0; i < n; i++){
         //     a.push_back(a[i]);
         // }
-        int j = 0;
+        int j = 0 , temp;
         for(int i = n - 1; i >= 0; i--)
         {
             while(!s.empty() && s.top() <= a[i])
                 s.pop();
             if(s.size() > 0)
             {
-                ans.push_back(s.top());
+                // ans.push_back(s.top());
+                temp = s.top();
                 s.push(a[i]);
+                a[i] = temp;
                 continue;
             }
             int flag = 0;
@@ -26,9 +28,10 @@ public:
             {
                 if(a[j] > a[i])
                 {
-                    ans.push_back(a[j]);
+                    // ans.push_back(a[j]);
                     s.push(a[j]);
                     s.push(a[i]);
+                    a[i] = a[j];
                     flag = 1;
                     break;
                 }
@@ -36,8 +39,9 @@ public:
             }
             if(flag == 0)
             {
-                ans.push_back(-1);
+                // ans.push_back(-1);
                 s.push(a[i]);
+                a[i] = -1;
             }
         }
 //         for(int i = n + n - 1; i >= 0; i--){
@@ -55,8 +59,8 @@ public:
         //     if(r[i] != -1) ans.push_back(r[i]);
         //     else ans.push_back(-1);
         // }
-        reverse(ans.begin() , ans.end());
+        // reverse(ans.begin() , ans.end());
         
-        return ans;
+        return a;
     }
 };
