@@ -16,7 +16,6 @@ public:
             else{
                 ans += mx;
             }
-            
         }
         
         return ans;
