@@ -1,6 +1,5 @@
 class Solution {
 public:
-
     void dfs(vector<vector<pair<char,int>>>& v ,int i,int j){
         
         if(i<0 or i>=v.size() or j<0 or j>=v[0].size() or v[i][j].first!='1' or v[i][j].second ==1) 
