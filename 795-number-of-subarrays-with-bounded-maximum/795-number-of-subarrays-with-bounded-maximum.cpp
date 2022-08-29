@@ -4,7 +4,6 @@ public:
         int n = a.size();
         int ans = 0;
         int mx = 0;
-        
         for(int i = 0, j = 0; i < n and j < n; j++){
             if(a[j] > r){
                 mx = 0; i = j + 1;
