@@ -2,7 +2,7 @@ class Solution {
 public:
     
     deque<int> vis;
-    vector<vector<int>> adj;
+    deque<vector<int>> adj;
     
     void dfs(int node){
         vis[node] = 1;
