@@ -1,7 +1,7 @@
 class Solution {
 public:
     
-    vector<int> vis;
+    deque<int> vis;
     vector<vector<int>> adj;
     
     void dfs(int node){
