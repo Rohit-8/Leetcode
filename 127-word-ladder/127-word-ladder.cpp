@@ -16,7 +16,7 @@ public:
         queue<pair<string,int>> q;
         q.push({bw, 1});
         int n = a.size();
-        map<string,int> m;
+        unordered_map<string,int> m;
         
         while(!q.empty()){
             string s = q.front().first;
