@@ -17,7 +17,6 @@ public:
     bool isBipartite(vector<vector<int>>& a) {
         int n = a.size();
         c = vector<int> (n + 1, -1);
-        // memset(c, -1, sizeof(c));
         
         for(int i = 0; i < n; i++){
             if(c[i] == -1){
