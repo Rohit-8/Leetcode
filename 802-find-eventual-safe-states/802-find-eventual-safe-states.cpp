@@ -2,7 +2,7 @@ class Solution {
 public:
     
     vector<int> vis;
-    map<int,bool> m;
+    map<int, bool> m;
     bool dfs(vector<vector<int>> &adj, int node, int par){
         vis[node] = 1;
         bool f = true;
