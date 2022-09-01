@@ -3,13 +3,13 @@ public:
     
     vector<int> vis;
     map<int, bool> m;
-    bool dfs(vector<vector<int>> &adj, int node, int par){
+    bool dfs(vector<vector<int>> &adj, int node){
         vis[node] = 1;
         bool f = true;
         
         for(auto x: adj[node]){
             if(vis[x] == 0){
-                if(dfs(adj, x, node) == false)
+                if(dfs(adj, x) == false)
                     f = false;
             }
             else f = f and m[x];
@@ -24,7 +24,7 @@ public:
         
         for(int i = 0; i < n; i++){
             if(vis[i] == 0)
-                dfs(adj, i, -1);
+                dfs(adj, i);
         }
         vector<int> ans;
         for(int i = 0; i < n; i++)
