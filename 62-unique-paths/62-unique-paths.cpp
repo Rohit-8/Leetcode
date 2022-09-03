@@ -1,8 +1,7 @@
 class Solution {
 public:
-    vector<vector<int>> dp;
-    
     int uniquePaths(int n, int m) {
+        vector<vector<int>> dp;
         dp.resize(n, vector<int> (m));
         for(int i = 0; i < n; i++)
             dp[i][0] = 1;
