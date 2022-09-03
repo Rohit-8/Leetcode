@@ -1,16 +1,15 @@
 class Solution {
 public:
-    vector<int> dp;
-    
+    // vector<int> dp;
     int climbStairs(int n) {
-        dp.resize(n + 1, -1);
-        dp[0] = 0;
         if(n <= 2) return n;
-        dp[1] = 1; dp[2] = 2;
+        int prev2 = 1, prev = 2, x;
         for(int i = 3; i <= n; i++){
-            dp[i] = dp[i-1] + dp[i-2];
+            x = prev2 + prev;
+            prev2 = prev;
+            prev = x;
         }
         
-        return dp[n];
+        return prev;
     }
 };
