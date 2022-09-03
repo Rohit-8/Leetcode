@@ -18,7 +18,7 @@ public:
     int numDistinct(string s, string t) {
         
         int n = s.size() , m = t.size();
-        vector<vector<int>>dp(n + 1 , vector<int>(m + 1, (int)0));
+        vector<vector<int>>dp(n + 1 , vector<int>(m + 1, (long long int)0));
         
         for(int i = 0; i <= n; i++)
             dp[i][0] = 1;
