@@ -1,53 +1,78 @@
 class Solution {
 public:
-    int n;
-    long long res(vector<int> &ct, vector<int> &rc, long long k){
-        if(k <= 0) return 0;
-        long long ans = 1e18;
-        long long i = 0, mx = 0, sum = 0;
-        deque<long long> dq(k);
-        for(i = 0; i < n and i < k; i++){
-            while ((!dq.empty()) && ct[i] >= ct[dq.back()])
-                dq.pop_back();
- 
-            dq.push_back(i);
-            sum += rc[i];
+    int maximumRobots(vector<int>& a, vector<int>& b, long long budget) {
+        
+        int n = b.size();
+        long long int pre[n] , sum = 0;
+        for(int i = 0; i < n; i++)
+        {
+            sum += b[i];
+            pre[i] = sum;
         }
-        mx = ct[dq.front()];
-        
-        for(int j = 0; i < n; i++, j ++){
-            mx = ct[dq.front()];
-            ans = min(ans, mx + k * sum);
-            while ((!dq.empty()) && dq.front() <= i - k)
-                dq.pop_front();
+        sum = 0;
+        map<long long int , long long int> mp;
+        long long int temp = 0 , ans = 0 , cnt = 0 , mx = 0 ;
+        priority_queue<long long int> pq;
+        int j = 0;
+        for(int i = 0; i < n ; i++)
+        {
+            // temp +=
+            sum += b[i];
             
-            while ((!dq.empty()) && ct[i] >= ct[dq.back()])
-                dq.pop_back();
- 
-            dq.push_back(i);
-            sum += rc[i];
-            sum -= rc[j];
-        }
-        mx = ct[dq.front()];
-        ans = min(ans, mx + k * sum);
-        
-        return ans;
-    }
-    int maximumRobots(vector<int>& ct, vector<int>& rc, long long b) {
-        n = ct.size();
-        
-        long long l = 0, r = n;
-        int ans = 0;
-        while(l <= r){
-            long long mid = l + (r-l)/2;
+            mx = max(mx ,(long long int)a[i]);
             
-            if(res(ct, rc, mid) <= b){
-                ans = mid;
-                l = mid + 1;
+            mp[a[i]]++;
+            long long int k = i - j + 1;
+            temp = k * sum + mx;
+            if(temp <= budget)
+            {
+                // cnt++;
+                ans = max(ans , k);
             }
-            else r = mid-1;
+            else
+            {
+                // cnt++;
+                while(temp > budget)
+                {
+                    if(j > i)
+                    {
+                        sum = 0;
+                        temp = 0;
+                        mp.clear();
+                        cnt = 0;
+                        // j++;
+                        break;
+                    }
+                    sum -= b[j];
+                    mp[a[j]]--;
+                    
+                    if(mp[mx] == 0)
+                    {
+                        mp.erase(mx);
+                    }
+                    if(mp[a[j]] == 0)
+                        mp.erase(a[j]);
+                    if(mp.size() == 0)
+                    {
+                        mx = 0;
+                        // sum
+                    }
+                    else
+                    {
+                        // mx = *(mp.rbegin() -> first);
+                        auto it = mp.rbegin() -> first;
+                        mx = it;
+                    }
+                    j++;
+                    cnt--;
+                   
+                    temp = sum *(i - j + 1) + mx;
+                }
+                ans = max(ans ,(long long int)i - j + 1);
+            }
+            // ans = max(ans , cnt);
+            
         }
-        
         return ans;
     }
 };
