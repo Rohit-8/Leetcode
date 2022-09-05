@@ -1,33 +1,32 @@
 class Solution {
 public:
-    // Morris traversal....
     vector<int> inorderTraversal(TreeNode* root) {
+        vector<int> ans;
+        TreeNode* curr = root;
         
-        vector<int> morris;
-        TreeNode* cur = root;
-        
-        while(cur != NULL){
-            if(cur ->left == NULL){
-                morris.push_back(cur->val);
-                cur = cur->right;
+        while(curr){
+            if(curr->left == NULL){
+                ans.push_back(curr->val);
+                curr = curr -> right;
             }
             else{
-                TreeNode* pre = cur->left;
-                while(pre->right and pre->right != cur){
-                    pre = pre->right;
+                TreeNode* temp = curr->left;
+                while(temp -> right and temp-> right != curr){
+                    temp = temp -> right;
                 }
-                if(pre->right == NULL){
-                    pre->right = cur;
-                    cur = cur->left;
+                if(temp -> right == NULL){
+                    temp -> right = curr;
+                    curr = curr-> left;
                 }
                 else{
-                    pre->right = NULL;
-                    morris.push_back(cur->val);
-                    cur = cur->right;
+                    ans.push_back(curr->val);
+                    temp -> right = NULL;
+                    curr = curr-> right;
                 }
             }
         }
-        return morris;
+        
+        return ans;
     }
 };
 /**
