@@ -23,7 +23,6 @@ public:
         return false;
     }
     
-    
     TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
         vector<TreeNode*> v1, v2;
         path(root, v1,p);
