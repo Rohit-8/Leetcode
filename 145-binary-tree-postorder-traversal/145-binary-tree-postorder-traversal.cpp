@@ -4,23 +4,19 @@ public:
         if(root == NULL)
             return {};
         vector<int> ans;
-        stack<TreeNode*> st1, st2;
+        stack<TreeNode*> st1;
         st1.push(root);
         while(!st1.empty()){
             TreeNode* temp = st1.top();
             st1.pop();
-            st2.push(temp);
+            ans.push_back(temp->val);
             
             if(temp-> left)
                 st1.push(temp-> left);
             if(temp-> right)
                 st1.push(temp-> right);
         }
-        while(!st2.empty()){
-            TreeNode* t = st2.top();
-            st2.pop();
-            ans.push_back(t->val);
-        }
+        reverse(begin(ans), end(ans));
         
         return ans;
     }
