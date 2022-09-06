@@ -7,9 +7,6 @@ public:
         int left = res(root -> left);
         int right = res(root -> right);
         
-        if(root -> val == 2){
-            cout<<left<<" "<<right<<endl;
-        }
         ans = max({ans, left + right + root -> val, left + root -> val, right + root->val, root->val});
         
         return max({left + root->val, right + root->val, root->val});
