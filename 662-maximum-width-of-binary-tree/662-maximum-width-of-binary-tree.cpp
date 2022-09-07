@@ -3,7 +3,7 @@ class Solution {
 public:
     int widthOfBinaryTree(TreeNode* root) {
         int ans = 0;
-        int l = INT_MAX;
+        // int l = INT_MAX;
         queue<pair<TreeNode*, long long>>q;
         q.push({root, 0});
         
