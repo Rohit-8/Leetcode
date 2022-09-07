@@ -2,12 +2,12 @@
 class Solution {
 public:
     int widthOfBinaryTree(TreeNode* root) {
-        int ans = 0, n, l = INT_MAX, r;
+        int ans = 0, l = INT_MAX, r;
         queue<pair<TreeNode*, long long>>q;
         q.push({root, 0});
         
         while(q.size()){
-            n = q.size();
+            int n = q.size();
             l = q.front().second;
             
             while(n--){
