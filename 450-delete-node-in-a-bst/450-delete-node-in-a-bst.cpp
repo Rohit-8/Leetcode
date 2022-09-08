@@ -1,44 +1,53 @@
 class Solution {
 public:
+    TreeNode* p = NULL;
+    TreeNode* sr(TreeNode* root, int val, TreeNode* par){
+        if(root == NULL) return NULL;
+        if(root -> val == val) {
+            p = par;
+            return root;
+        }
+        if(root -> val > val) return sr(root -> left, val, root);
+        return sr(root -> right, val, root);
+    }
+    
+    TreeNode* res(TreeNode* root){
+        if(root == NULL) return root;
+        if(root -> right == NULL) return root;
+        return res(root -> right);
+    }
+    
     TreeNode* deleteNode(TreeNode* root, int key) {
-        TreeNode* dummy = new TreeNode(0);
-        dummy ->right = root;
-        TreeNode* prev = dummy;
+        if(root == NULL) return root;
+        TreeNode* t = root;
+        TreeNode* x = sr(root, key, NULL);
+        if(x == NULL) return root;
+        TreeNode* l = res(x -> left);
         
-        bool f = 1;
-        while(root){
-            if(root->val == key and root->right == NULL){
-                if(f)
-                prev ->right = root->left;
-                else prev->left = root->left;
-                break;
-            }
-            if(root->val == key and root->right){
-                TreeNode* le = root->left;
-                TreeNode* ri = root->right;
-                
-                if(f) prev ->right = ri;
-                else prev->left = ri;
-                
-                while(ri->left)
-                    ri = ri->left;
-                
-                ri->left = le;
-                break;
-            }
-            
-            if(root->val > key){
-                prev = root;
-                root = root->left;
-                f = 0;
-            }
+        if(!p){
+            if(!l)
+                return root -> right;
+            l -> right = x -> right;
+            return root -> left;
+        }
+        if(p -> val > key){
+            if(!l)
+                p -> left = x -> right;
             else{
-                prev = root;
-                root = root->right;
-                f = 1;
+                p -> left = x -> left;
+                l -> right = x -> right;
             }
         }
-        return dummy->right;
+        else {
+            if(!l)
+                p -> right = x -> right;
+            else{
+                p -> right = x -> left;
+                l -> right = x -> right;
+            }
+        }
+        
+        return root;
     }
 };
 /**
