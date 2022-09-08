@@ -1,8 +1,6 @@
 class Solution {
 public:
     TreeNode* res(TreeNode* root, int val){
-        if(root == NULL) return NULL;
-        
         if(root -> left == NULL and root -> right == NULL)
             return root;
         if(root -> val > val and root -> left == NULL)
