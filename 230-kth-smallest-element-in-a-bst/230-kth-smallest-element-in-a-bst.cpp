@@ -10,6 +10,7 @@ public:
         
         res(root -> left, k);
         res(root -> right, k);
+        
     }
     int kthSmallest(TreeNode* root, int k) {
         res(root, k);
