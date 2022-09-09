@@ -12,21 +12,15 @@
 class Solution {
 public:
     
-    bool check(TreeNode* root, long long mn, long long mx){
-        if(root==NULL) return true;
-        
-        return (root->val >mn) and (root->val < mx) and check(root->left, mn, root->val) && check(root->right, root->val, mx);
+    bool check(TreeNode* root, long int l, long int r){
+        if(root == NULL) return true;
+        if(root -> val <= l or root -> val >= r)
+            return false;
+        return check(root -> left, l, root -> val) and check(root -> right, root -> val, r);
     }
     
-    
     bool isValidBST(TreeNode* root) {
-        
-        // inorder(root);
-        // for(int i =1; i<v.size();i++){
-        //     if(v[i]<=v[i-1]) return false;
-        // }
-        long long mn = LONG_MIN, mx = LONG_MAX;
-        return check(root, mn, mx);
-        
+        if(root == NULL) return true;
+        return check(root -> left, (long int)INT_MIN-1, root -> val) and check(root -> right, root -> val, (long int)INT_MAX + 1);
     }
 };
