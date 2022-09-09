@@ -1,3 +1,21 @@
+class Solution {
+public:
+    priority_queue<int> p;
+    void res(TreeNode* root, int k){
+        if(root == NULL)
+            return;
+        p.push(root -> val);
+        if(p.size() > k)
+            p.pop();
+        
+        res(root -> left, k);
+        res(root -> right, k);
+    }
+    int kthSmallest(TreeNode* root, int k) {
+        res(root, k);
+        return p.top();
+    }
+};
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
@@ -9,23 +27,3 @@
  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
-class Solution {
-public:
-    int c , ans = 0;
-    void inorder(TreeNode* root){
-        if(root == NULL) return ;
-        inorder(root->left);
-        c--;
-        
-        if(c == 0){
-            ans = root->val;
-            return;
-        }
-        inorder(root->right);
-    }
-    int kthSmallest(TreeNode* root, int k) {
-        c = k;
-        inorder(root);
-        return ans;
-    }
-};
