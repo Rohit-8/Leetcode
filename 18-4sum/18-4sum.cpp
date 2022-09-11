@@ -8,7 +8,6 @@ public:
         
         for(int i = 0; i < a.size(); i++){
             for(int j = i + 1; j < a.size(); j ++){
-                
                 int l = j + 1, r = a.size()-1;
                 long long rem = t - a[i] - a[j]*1ll;
                 for(; l < r;){
