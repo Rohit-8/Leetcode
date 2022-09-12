@@ -11,37 +11,20 @@
  */
 class Solution {
 public:
+    int mn = 1e9;
+    
+    void res(TreeNode* root, int &last){
+        if(root == NULL) return;
+        
+        res(root -> left, last);
+        mn = min(mn, abs(last - root -> val));
+        last = root -> val;
+        res(root -> right, last);
+    }
+    
     int getMinimumDifference(TreeNode* root) {
-        TreeNode* curr = root ;
-        
-        stack<TreeNode*> st ;
-        
-        int last = -1e9 ;
-        
-        int mn = 1e9 ;
-        
-        while(curr)
-        {
-            st.push(curr) ;
-            curr = curr->left ;
-        }
-        
-        while(st.size()>0)
-        {
-            curr = st.top() ;
-            mn = min(mn,abs(last-curr->val)) ;
-            st.pop() ;
-            last = curr->val ;
-            
-            curr = curr->right ;
-            
-            while(curr)
-            {
-                st.push(curr) ;
-                curr = curr->left ;
-            }
-        }
-        
-        return mn ;
+        int last = -1e9;
+        res(root, last);
+        return mn;
     }
 };
