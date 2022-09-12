@@ -17,17 +17,19 @@ public:
     bool canPartition(vector<int>& a) {
         int sum = 0;
         int n;
-        vector<vector<bool>> dp;
+        
         n = a.size();
         for(int i = 0; i < n; i++){
             sum += a[i];
         }
         if(sum % 2) return false;
+        vector<vector<bool>> dp;
         dp.resize(n + 1, vector<bool> (sum / 2 + 1, false));
         int m = sum / 2;
         for(int i = 0; i < n; i++){
             dp[i][0] = true;
         }
+        
         for(int i = 1; i < n; i++){
             for(int j = 1; j <= m; j++){
                 dp[i][j] = dp[i - 1][j];
