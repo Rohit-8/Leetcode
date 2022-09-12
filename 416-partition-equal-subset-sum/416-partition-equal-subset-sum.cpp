@@ -1,7 +1,6 @@
 class Solution {
 public:
-    int n;
-    vector<vector<bool>> dp;
+    
 //     bool res(vector<int> &a, int sum, int i){
 //         if(i < 0) return false;
 //         if(sum == 0) return true;
@@ -17,6 +16,8 @@ public:
     
     bool canPartition(vector<int>& a) {
         int sum = 0;
+        int n;
+        vector<vector<bool>> dp;
         n = a.size();
         for(int i = 0; i < n; i++){
             sum += a[i];
