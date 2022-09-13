@@ -6,8 +6,8 @@ public:
         for(int i=1;i<n;i++)
             v[i] = v[i] + v[i-1] ;
         
-        for(int i=0;i<n;i++)
-        {
+        for(int i=0;i<n;i++){
+            
             int lower = lower_bound(v.begin()+i,v.end(),prev+k) - v.begin() ;
             int upper = upper_bound(v.begin()+i,v.end(),prev+k) - v.begin() ;
             
