@@ -28,17 +28,15 @@ public:
             c++;
             
             if(c == k){
-                while(j <= i and a[j]%2 != 1){
+                while(j <= i and a[j] % 2 != 1){
                     j++;
                 }
-                if(i == j){
+                if(i == j)
                     ans += 1 + (left[i] + right[i] + left[i]* right[i]);
-                    // cout<<left[i]<<" "<< right[i]<<" ";
-                }
-                else{
+                
+                else
                     ans += 1 + (left[j] + right[i] + left[j] * right[i]);
-                    // cout<<left[i]<<" "<< right[i]<<" ";
-                }
+                
                 j++;
                 c--;
             }
