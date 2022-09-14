@@ -2,8 +2,9 @@ class Solution {
 public:
     int numSubarraysWithSum(vector<int>& a, int k) {
         int n = a.size();
+        int ans = 0, c = 0;
         if(k == 0){
-            int ans = 0, c = 0;
+            
             for(int i = 0; i < n; i ++){
                 if(a[i] == 1) {
                     ans += (c * (c + 1) / 2);
@@ -17,7 +18,7 @@ public:
         
         int left[n + 1];
         int right[n + 1];
-        int c = 0;
+        
         for(int i = 0; i < n; i++){
             if(a[i] == 0) c++;
             else{
@@ -34,7 +35,6 @@ public:
             }
         }
         c = 0;
-        int ans = 0;
         for(int i = 0, j = 0; i < n; i++){
             if(a[i] == 0) continue;
             c++;
@@ -53,11 +53,6 @@ public:
                 }
                 j++;
                 c--;
-            }
-        }
-        for(int i = 0; i < n; i++){
-            if(a[i] == 1){
-                // cout<<right[i]<<" ";
             }
         }
         
