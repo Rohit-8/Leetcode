@@ -1,6 +1,6 @@
 class Solution {
 public:
-    int myAtoi(string s) {
+    int myAtoi(string &s) {
         if(s.size() == 0) return 0;
         int i = 0;
         while(i < s.size() and s[i] == ' ') i++;
