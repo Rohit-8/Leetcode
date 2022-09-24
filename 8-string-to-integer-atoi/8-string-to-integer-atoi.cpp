@@ -23,7 +23,6 @@ public:
             }
         }
         
-        
         return ans * mul;
     }
 };
