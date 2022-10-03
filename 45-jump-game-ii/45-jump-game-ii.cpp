@@ -1,15 +1,28 @@
 class Solution {
 public:
-    int jump(vector<int>& a) {
-        int jmp = 0, n = a.size() - 1, curEnd = 0, curfar = 0;
-        for(int i = 0; i < n; i++){
-            curfar = max(curfar, i + a[i]);
-            if(curfar >= n) return jmp + 1;
-            if(i == curEnd){
-                jmp++;
-                curEnd = curfar;
-            }
+    int n;
+    vector<int> dp;
+    
+    int res(vector<int> &a, int j){
+        if(j >= n - 1){
+            return 0;
         }
-        return jmp;
+        
+        if(dp[j] != -1) return dp[j];
+        if(a[j] == 0) return dp[j] = 1e9;
+        
+        int ans = 1e9;
+        for(int i = 1; i <= a[j]; i++){
+            ans = min(ans, 1 + res(a, j + i));
+        }
+        return dp[j] = ans;
+    }
+    
+    int jump(vector<int>& a) {
+        n = a.size();
+        if(n == 1) return 0;
+        dp.resize(n + 1, -1);
+        res(a, 0); 
+        return dp[0];
     }
 };
