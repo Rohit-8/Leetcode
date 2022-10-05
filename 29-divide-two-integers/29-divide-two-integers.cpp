@@ -5,7 +5,6 @@ public:
         if(dividend == INT_MIN){
             if(divisor == 1) return INT_MIN;
         }
-        
         bool sign=(dividend<0 == divisor<0);
         unsigned int a=abs(dividend);
         unsigned int b=abs(divisor);
@@ -23,6 +22,6 @@ public:
           a=a-(b<<cnt);
         }
         
-            return sign?ans:-ans;
+        return sign?ans:-ans;
     }
 };
