@@ -1,7 +1,7 @@
 class Solution {
 public:
     vector<int> findingUsersActiveMinutes(vector<vector<int>>& a, int n) {
-        map<int, set<int>> m;
+        unordered_map<int, set<int>> m;
         for(int i = 0; i < a.size(); i++){
             m[a[i][0]].insert(a[i][1]);
         }
