@@ -1,25 +1,22 @@
 class Solution {
 public:
-    int n;
-    vector<int> v;
-    int res(vector<int> &a, int k){
-        if(k >= n - 1) return 1;
-        if(a[k] == 0) return 0;
+    vector<int> dp;
+    bool fl = false;
+    int res(vector<int> &a, int n){
         
-        if(v[k] != -1) return v[k];
-        
+        if(n >= a.size() - 1) return 1;
+        if(fl) return 1;
+        if(dp[n] != -1) return dp[n];
         int f = 0;
-        for(int i = 1; i <= a[k]; i++){
-            if(k + i >= n - 1) return v[k] = 1;
-            f |= res(a, k + i);
-            if(f) return v[k] = 1;
+        for(int i = 1; i <= a[n] and a[n] > 0; i++){
+            f |= res(a, i + n);
+            if(f) break;
         }
-        
-        return v[k] = f;
+        if(f) fl = true;
+        return dp[n] = f;
     }
     bool canJump(vector<int>& a) {
-        n = a.size();
-        v.resize(n + 1, -1);
+        dp.resize(a.size() + 1, -1);
         return res(a, 0);
     }
 };
