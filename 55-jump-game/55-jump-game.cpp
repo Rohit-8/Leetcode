@@ -6,6 +6,7 @@ public:
         
         if(n >= a.size() - 1) return 1;
         if(fl) return 1;
+        
         if(dp[n] != -1) return dp[n];
         int f = 0;
         for(int i = 1; i <= a[n] and a[n] > 0; i++){
