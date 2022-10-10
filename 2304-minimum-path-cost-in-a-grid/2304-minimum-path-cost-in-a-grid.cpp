@@ -1,10 +1,8 @@
 class Solution {
 public:
     map<pair<int, int>, vector<pair<pair<int,int>, int>>> m;
-    map<int, pair<int, int>> mp;
-    int n ;
+    int n;
     int ans = INT_MAX;
-    // vector<vector<int>> v;
     vector<vector<int>> dp;
     
     int res(int i, int j, vector<vector<int>>& a){
@@ -24,7 +22,7 @@ public:
         n = a.size();
         // v = a;
         dp.resize(n + 1, vector<int> (a[0].size() + 1, - 1));
-        
+        map<int, pair<int, int>> mp;
         for(int i = 0; i < a.size(); i++){
             for(int j = 0; j < a[0].size(); j++){
                 mp[a[i][j]] = {i, j};
