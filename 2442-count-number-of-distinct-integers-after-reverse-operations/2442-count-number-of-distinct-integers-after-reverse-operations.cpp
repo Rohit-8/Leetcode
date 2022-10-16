@@ -15,7 +15,6 @@ public:
             st.insert(a[i]);
             st.insert(rev(a[i]));
         }
-        
         return st.size();
     }
 };
