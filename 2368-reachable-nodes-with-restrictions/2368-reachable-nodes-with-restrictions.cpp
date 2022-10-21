@@ -1,7 +1,7 @@
 class Solution {
 public:
     int reachableNodes(int n, vector<vector<int>>& a, vector<int>& r) {
-        map<int, int> m;
+        unordered_map<int, int> m;
         for(int i = 0; i < r.size(); i++){
             m[r[i]]++;
         }
