@@ -1,6 +1,6 @@
 class Solution {
 public:
-    map<int, int> m;
+    unordered_map<int, int> m;
     int ans = -1;
     int x = INT_MAX;
     void res(vector<int> &a, int node, vector<int> &v, int c){
