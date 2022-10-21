@@ -1,6 +1,6 @@
 class Solution {
 public:
-    int dp[100005];
+    vector<int> dp;
     bool res(vector<int> &a, int i){
         if(i >= a.size()) return true;
         if(dp[i] != -1)
@@ -17,7 +17,7 @@ public:
     }
     
     bool validPartition(vector<int>& a) {
-        memset(dp, -1, sizeof(dp));
+        dp.resize(a.size() + 1, -1);
         return res(a, 0);
     }
 };
