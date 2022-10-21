@@ -26,12 +26,15 @@ public:
     }
     
     int closestMeetingNode(vector<int>& a, int node1, int node2) {
-        vector<int> v1(a.size(), 0), v2(a.size(), 0);
+        vector<int> v1(a.size(), 0);
         
         int c = 0;
         res(a, node1, v1, c);
+        for(int i = 0; i < a.size(); i++){
+            v1[i] = 0;
+        }
         c = 0;
-        res(a, node2, v2, c);
+        res(a, node2, v1, c);
         
         return ans;
     }
