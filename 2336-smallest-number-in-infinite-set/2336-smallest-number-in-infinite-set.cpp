@@ -3,7 +3,8 @@ public:
     set<int>st;
     SmallestInfiniteSet() {
         st.clear();
-        for(int i=1;i<=1000;i++) st.insert(i);
+        for(int i=1;i<=1000;i++) 
+            st.insert(i);
     }
     
     int popSmallest() {
