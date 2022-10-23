@@ -4,6 +4,7 @@ public:
         int l = *min_element(nums.begin(),nums.end());
         int r = *max_element(nums.begin(),nums.end());
         long long ans = 1e18;
+        
         while (r >= l) {
             long long mid1 = l + (r - l) / 3;
             long long mid2 = r - (r - l) / 3;
