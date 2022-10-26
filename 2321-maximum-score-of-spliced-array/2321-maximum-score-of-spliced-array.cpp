@@ -9,8 +9,8 @@ public:
         
         int f = 0, s = 0, mx1 = 0, mx2 = 0;
         for(int i = 0; i < nums1.size(); i++){
-            s = max(s + nums1[i] - nums2[i], nums1[i] - nums2[i]);
             f = max(f + nums2[i] - nums1[i], nums2[i] - nums1[i]);
+            s = max(s + nums1[i] - nums2[i], nums1[i] - nums2[i]);
             
             mx1 = max(mx1, f);
             mx2 = max(mx2, s);
