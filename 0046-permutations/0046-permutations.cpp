@@ -1,27 +1,20 @@
 class Solution {
 public:
-    void res(vector<int> &nums, vector<int> v, vector<vector<int>> &ans, map<int, int> m){
-        if(v.size() >= nums.size()){
-            ans.push_back(v);
+    vector<vector<int>> ans;
+    void res(int i, vector<int> &a){
+        if(i == a.size()){
+            ans.push_back(a);
             return;
         }
-        for(int i = 0; i < nums.size(); i++){
-            if(m[nums[i]] <= 0){
-                m[nums[i]] ++;
-                v.push_back(nums[i]);
-                res(nums, v, ans, m);
-                v.pop_back();
-                m[nums[i]] = 0;
-            }
+        for(int j = i; j<a.size(); j++){
+            swap(a[i],a[j]);
+            res(i+1,a);
+            swap(a[i],a[j]);
         }
     }
     
-    vector<vector<int>> permute(vector<int>& nums) {
-        vector<vector<int>> ans;
-        vector<int> v;
-        map<int,int> m;
-        res(nums, v, ans, m);
-        
+    vector<vector<int>> permute(vector<int>& a) {
+        res(0 , a);
         return ans;
     }
 };
