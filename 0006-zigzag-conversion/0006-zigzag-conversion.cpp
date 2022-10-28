@@ -40,18 +40,18 @@ public:
         }
         
         cout<<endl;
-        // s.clear();
-        string ans;
+        s = "";
+        // string ans;
         for(int i = 0; i < n; i++){
             for(j = 0; j < t; j++){
                 if(ch[i][j] != '0')
-                    ans.push_back(ch[i][j]);
+                    s.push_back(ch[i][j]);
                 
                 // cout<<ch[i][j]<<" ";
             }
             // cout<<endl;
         }
         
-        return ans;
+        return s;
     }
 };
