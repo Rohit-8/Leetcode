@@ -1,6 +1,6 @@
 class Solution {
 public:
-    string convert(string s, int n) {
+    string convert(string &s, int n) {
         int t = s.size();
         vector<vector<char>> ch(n, vector<char> (t , '0'));
         int k = 0;
@@ -12,7 +12,7 @@ public:
             {
                 for(j = 0; j < n; j++){
                     if(k >= s.size()) {
-                        cout<<i<<" ks "<<endl; break;
+                        break;
                     }
                     ch[j][i] = s[k++];
                 }
@@ -28,28 +28,24 @@ public:
                     }
                     ch[j++][i++] = s[k++];
                     if(k >= s.size()) {
-                        cout<<i<<endl; break;
+                        break;
                     }
                 }
                 
             }
             
             if(k >= s.size()) {
-                cout<<i<<"khatam "<<endl; break;
+                break;
             }
         }
         
-        cout<<endl;
         s = "";
-        // string ans;
         for(int i = 0; i < n; i++){
             for(j = 0; j < t; j++){
                 if(ch[i][j] != '0')
                     s.push_back(ch[i][j]);
                 
-                // cout<<ch[i][j]<<" ";
             }
-            // cout<<endl;
         }
         
         return s;
