@@ -5,8 +5,7 @@ public:
         if(a.size() > b.size()) return findMedianSortedArrays(b, a);
 
         int n = a.size();
-        int m = b.size();
-                
+        int m = b.size();       
         int l = 0, r = n;
            
         while(l <= r){
