@@ -11,9 +11,7 @@ public:
         vector<Node*> v;
         
         for(auto x: node -> neighbors){
-            // if(m.count(x) == 0)
-                v.push_back(res(x, m));
-            // else v.push_back(m[x]);
+            v.push_back(res(x, m));
         }
         
         t -> neighbors = v;
