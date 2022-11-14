@@ -6,11 +6,9 @@ public:
         long long sum = 0;
         if(x == node){
             sum = a[node] / 2;
-            a[node] = 0; 
-            // cout<<c<<endl;
+            a[node] = 0;
         }
         else {
-            // a[x] = 0;
             sum = a[node];
             a[node] = 0;
         }
@@ -26,7 +24,6 @@ public:
         }
         if(f)
             sum += d;
-        // a[x] = 0;
         return sum;
     }
     
@@ -67,17 +64,14 @@ public:
         int c = 0;
         int x = bob;
         while(1){
-            cout<<x<<" ";
             c++;
             if(x == 0) break;
             x = path[x];
             
         }
-        cout<<endl<< c<<endl;
         x = c / 2;
         c = bob;
         while(x--){
-            cout<<c<<" "<< am[c]<<endl;
             am[c] = 0;
             c = path[c];
         }
