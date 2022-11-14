@@ -1,30 +1,28 @@
-#define mod 1000000007
 class Solution {
 public:
-    int score(int target, vector<int>& dp, int one, int zero)
-    {
-
-        if (target == 0)
-            return 1;
-        if (target < 0)
+    int mod = 1000000007;
+    vector<long long> dp;
+    long long res(int z, int o, long long target, vector<long long> &dp){
+        if(target == 0)
+            return 1ll;
+        if(target < 0)
             return 0;
-
-        if (dp[target] != -1)
+        if(dp[target] != -1)
             return dp[target];
-
-        long long sum =  score(target - one, dp, one, zero) + score(target - zero, dp,one, zero);
-
-        return dp[target] = (sum % (mod));
+        
+        long long sum = 0;
+        sum += (res(z, o, target - z, dp) + res(z, o, target - o, dp)) % mod;
+        return dp[target] = (sum % mod);
     }
-
-    int countGoodStrings(int low, int high, int zero, int one)
-    {
-        vector<int> dp(high + 1, -1);
-
-        int ans = 0;
-        for (int i = low; i <= high; i++){
-            ans = ((ans % mod) + ( score(i, dp, one, zero) % mod )) % mod;
+    
+    int countGoodStrings(int low, int high, int zero, int one) {
+        
+        long long ans = 0;
+        dp.resize(high + 5, -1);
+        for(int i = low; i <= high; i++){
+            ans +=(res(zero, one, i, dp) + mod)% mod;
         }
-        return ans;
+        
+        return ans % mod;
     }
 };
