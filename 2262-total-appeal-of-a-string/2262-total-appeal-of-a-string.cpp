@@ -6,7 +6,6 @@ public:
         map<char, int> mp;
         for(long long i = 0; i < n; i++){
             if(mp.count(s[i])){
-                // ans += (i - mp[s[i]] - 1);
                 long long x = n - i;
                 x *= (i - mp[s[i]]);
                 ans += x;
@@ -18,7 +17,6 @@ public:
                 ans += x;
                 mp[s[i]] = i;
             }
-            // cout<<i<<" "<<x <<endl;
         }
         
         return ans;
