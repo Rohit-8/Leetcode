@@ -15,16 +15,16 @@ public:
             }
         }
         
-        for(auto v: st){
-            int c = 0;
-            for(int i = 0; i < v.size(); i++){
-                if(v[i] % p == 0)
-                    c++;
-                if(c > k) break;
-            }
-            if(c <= k) ans ++;
-        }
+        // for(auto v: st){
+        //     int c = 0;
+        //     for(int i = 0; i < v.size(); i++){
+        //         if(v[i] % p == 0)
+        //             c++;
+        //         if(c > k) break;
+        //     }
+        //     if(c <= k) ans ++;
+        // }
         
-        return ans;
+        return st.size();
     }
 };
