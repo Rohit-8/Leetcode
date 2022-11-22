@@ -11,7 +11,7 @@ public:
             return dp[i][j] = res(s, t, i + 1, j + 1, dp);
         return dp[i][j] = 1 + min({res(s, t, i, j + 1, dp), res(s, t, i + 1, j + 1, dp), res(s, t, i + 1, j, dp)});
     }
-    int minDistance(string s, string t) {
+    int minDistance(string &s, string &t) {
         vector<vector<int>> dp(s.size() + 1, vector<int> (t.size() + 1, -1));
         return res(s, t, 0, 0, dp);
     }
