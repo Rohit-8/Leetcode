@@ -22,7 +22,6 @@ public:
     vector<int> maximumBobPoints(int x, vector<int>& a) {
         vector<int> v(a.size(), 0);
         
-        // ans.resize(a.size(), 0);
         res(a, x, v, a.size() - 1, 0);
         
         return ans;
