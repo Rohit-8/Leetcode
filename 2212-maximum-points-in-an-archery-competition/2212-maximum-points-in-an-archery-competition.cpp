@@ -2,11 +2,13 @@ class Solution {
 public:
     vector<int> ans;
     int prev = 0;
-    void res(vector<int> &a, int x, vector<int> v, int n, int sum){
+    void res(vector<int> &a, int x, vector<int> &v, int n, int sum){
         if(n < 0 or x <= 0){
-            if(x > 0) v[0] += x;
+            
             if(sum >= prev){
+                if(x > 0) v[0] += x;
                 ans = v;
+                v[0] = 0;
                 prev = sum;
             }
             return;
