@@ -26,9 +26,7 @@ public:
             ans.push_back(st.top());
             st.pop();
         }
-        // ans.push_back(l);
         reverse(ans.begin(), ans.end());
-        cout<< gcd(899, 23);
         return ans;
     }
 };
