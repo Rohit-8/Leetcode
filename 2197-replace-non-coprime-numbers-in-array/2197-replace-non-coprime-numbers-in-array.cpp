@@ -5,16 +5,16 @@ public:
     }
     vector<int> replaceNonCoprimes(vector<int>& a) {
         vector<int> ans;
-        stack<long long> st;
+        stack<int> st;
         for(int i = 0; i < a.size(); i++){
             st.push(a[i]);
             while(st.size() > 1){
-                long long x = st.top();
+                long x = st.top();
                 st.pop();
-                long long y = st.top();
+                long y = st.top();
                 if(gcd(x, y) > 1){
                     st.pop();
-                    st.push((x * y) / gcd(x, y));
+                    st.push((x * y * 1ll) / gcd(x, y));
                 }
                 else {
                     st.push(x);
