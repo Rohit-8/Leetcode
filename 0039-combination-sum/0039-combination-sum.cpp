@@ -14,7 +14,7 @@ public:
                 v.push_back(a[i]);  
                 res(a, t, n, v, sum + a[i], i);
                 v.pop_back();
-                while(i+1 < n and a[i+1] == a[i]) i++;
+                // while(i+1 < n and a[i+1] == a[i]) i++;
             }
             // else return;
         }
