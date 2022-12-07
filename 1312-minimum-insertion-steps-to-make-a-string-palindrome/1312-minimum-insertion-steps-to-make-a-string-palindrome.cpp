@@ -12,7 +12,7 @@ public:
         return dp[i][j] = max(lps(s, t, i + 1, j, dp), lps(s, t, i, j + 1, dp));
     }
     
-    int minInsertions(string s) {
+    int minInsertions(string &s) {
         string t = s;
         vector<vector<int>> dp(s.size() + 1, vector<int> (s.size() + 1, -1));
         reverse(t.begin(), t.end());
