@@ -13,8 +13,8 @@ public:
         pq.push({a[0][0], {0, 0}});
         vector<int> v(1000001, 0);
         
-        vector<vector<int>> vis(n , vector<int> (m, 0));
-        vis[0][0] = 1;
+        // vector<vector<int>> vis(n , vector<int> (m, 0));
+        a[0][0] = 0;
         
         int c = 0;
         while(!pq.empty() and k < nn){
@@ -31,26 +31,25 @@ public:
             
             pq.pop();
             c++;
-            // a[i][j] = -1;
             //// up /////
-            if(i - 1 >= 0 and vis[i - 1][j] == 0){
+            if(i - 1 >= 0 and a[i - 1][j] > 0){
                 pq.push({a[i - 1][j], {i - 1, j}});
-                vis[i - 1][j] = 1;
+                a[i - 1][j] = 0;
             }
             //// down ////
-            if(i + 1 < n and vis[i + 1][j] == 0){
+            if(i + 1 < n and a[i + 1][j] > 0){
                 pq.push({a[i + 1][j], {i + 1, j}});
-                vis[i + 1][j] = 1;
+                a[i + 1][j] = 0;
             }
             //// left ////
-            if(j - 1 >= 0 and vis[i][j - 1] == 0){
+            if(j - 1 >= 0 and a[i][j - 1] > 0){
                 pq.push({a[i][j - 1], {i, j - 1}});
-                vis[i][j - 1] = 1;
+                a[i][j - 1] = 0;
             }
             //// right ////
-            if(j + 1 < m and vis[i][j + 1] == 0){
+            if(j + 1 < m and a[i][j + 1] > 0){
                 pq.push({a[i][j + 1], {i, j + 1}});
-                vis[i][j + 1] = 1;
+                a[i][j + 1] = 0;
             }
             
         }
