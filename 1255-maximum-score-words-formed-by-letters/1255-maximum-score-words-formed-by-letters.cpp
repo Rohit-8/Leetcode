@@ -11,20 +11,17 @@ public:
         return x;
     }
     
-    int res(vector<string> &w, int n, map<char, int> mp, vector<int> &sc, vector<int> &dp){
-        if(n >= w.size()) return dp[n] = 0;
+    int res(vector<string> &w, int n, map<char, int> mp, vector<int> &sc){
+        if(n >= w.size()) return 0;
         
-        // if(dp[n] != -1) return dp[n];
         
-        int sum = res(w, n + 1, mp, sc, dp);
+        int sum = res(w, n + 1, mp, sc);
         int x = form(w[n], mp, sc);
         if(x){
-            // cout << x << endl;
-            // cout << w[n] << endl;
-            sum = max(sum, x + res(w, n + 1, mp, sc, dp));
+            sum = max(sum, x + res(w, n + 1, mp, sc));
         }
         
-        return dp[n] = sum;
+        return sum;
     }
     
     int maxScoreWords(vector<string>& w, vector<char>& l, vector<int>& sc){
@@ -32,7 +29,6 @@ public:
         for(int i = 0; i < l.size(); i++){
             mp[l[i]]++;
         }
-        vector<int> dp(w.size() + 1, -1);
-        return res(w, 0, mp, sc, dp);
+        return res(w, 0, mp, sc);
     }
 };
