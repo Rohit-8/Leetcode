@@ -15,9 +15,9 @@ public:
                 od.push_back(i);
             }
         }
-        if(od.size() == 0){
+        if(od.size() == 0)
             return true;
-        }
+            
         if(od.size() > 4 or od.size() % 2)
             return false;
         
