@@ -4,24 +4,14 @@ public:
         vector<int> ans;
         for(int i = 0; i < q.size(); i++){
             int a = q[i][0], b = q[i][1];
-            int x = a, y = b;
+            int c = 0;
             
-            map<int, int> mp;
-            int c = 1;
-            while(a > 0){
-                mp[a] = c;
-                c ++;
-                a = a / 2;
-            }
-            c = 0;
-            while(b > 0){
-                if(mp.count(b)){
-                    ans.push_back(c + mp[b]);
-                    break;
-                }
-                b = b / 2;
+            while(a != b){
+                if(b > a) b /= 2;
+                else a /= 2;
                 c ++;
             }
+            ans.push_back(c + 1);
         }
         
         return ans;
