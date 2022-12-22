@@ -15,7 +15,7 @@ public:
             if(s[i] < '0' or s[i] > '9') break;
             ans = ans * 10 + (s[i] - '0');
             if(ans >= INT_MAX and mul == 1){
-                cout<<ans;
+                // cout<<ans;
                 return INT_MAX;
             }
             else if(ans > INT_MAX and mul == -1){
