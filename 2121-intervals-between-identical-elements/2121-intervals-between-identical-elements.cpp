@@ -1,7 +1,7 @@
 class Solution {
 public:
     vector<long long> getDistances(vector<int>& a) {
-        map<long long, pair<long long, long long>> mp;
+        unordered_map<long long, pair<long long, long long>> mp;
         vector<long long> pre(a.size() + 1, 0);
         
         for(long long i = 0; i < a.size(); i++){
@@ -17,7 +17,7 @@ public:
             }
         }
         
-        map<long long, pair<long long, long long>> mp2;
+        unordered_map<long long, pair<long long, long long>> mp2;
         vector<long long> suff(a.size() + 1, 0);
         for(long long i = a.size() - 1; i >= 0; i --){
             if(mp2.count(a[i]) == false){
