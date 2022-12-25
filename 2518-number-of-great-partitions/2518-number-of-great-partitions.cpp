@@ -11,6 +11,7 @@ public:
         if(dp[n][sum] != -1){
             return dp[n][sum];
         }
+        
         return dp[n][sum] = (res(a, n + 1, sum + a[n], k, dp) + res(a, n + 1, sum, k, dp)) % mod;
     }
     
