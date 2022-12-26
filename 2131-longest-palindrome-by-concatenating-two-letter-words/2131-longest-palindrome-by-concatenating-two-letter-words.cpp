@@ -2,7 +2,7 @@ class Solution {
 public:
     int longestPalindrome(vector<string>& a) {
         int n = a.size();
-        map<string, int> mp;
+        unordered_map<string, int> mp;
         for(int i = 0; i < n; i++){
             mp[a[i]] ++;
         }
