@@ -6,7 +6,7 @@ public:
     }
     
     int minimizeSet(int d1, int d2, int cnt1, int cnt2) {
-        // return max({getMax(cnt1, d1), getMax(cnt2, d2), getMax(cnt1 + cnt2, d1, d2) });
+        return max({getMax(cnt1, d1), getMax(cnt2, d2), getMax(cnt1 + cnt2, d1, d2) });
         
         long long l = 0, r = 1e14;
         while(l <= r){
