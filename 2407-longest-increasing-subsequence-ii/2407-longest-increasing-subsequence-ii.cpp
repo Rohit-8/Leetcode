@@ -40,7 +40,7 @@ So we use a segment tree to find the maximum value in the range and update the c
         for(int i = 0; i < nums.size(); ++i) {
             int left = max(1, nums[i] - k), right = nums[i] - 1;
             int q = query(left, right, 0, 0, x - 1); // check for the element in the range of [nums[i] - k, nums[i] - 1] with the maximum value
-            cout <<nums[i] <<" " << q << endl;
+            // cout <<nums[i] <<" " << q << endl;
             res = max(res, q + 1);
             upd(nums[i], q + 1, 0, 0, x - 1); //update current value
         }
