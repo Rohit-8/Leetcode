@@ -5,7 +5,6 @@ public:
         for(int j = 0; j < k; j ++){
             int c = 0;
             vector<int> v;
-            // v.push_back(a[0]);
             for(int i = j; i < a.size(); i += k){
                 c++;
                 if(i == j){
