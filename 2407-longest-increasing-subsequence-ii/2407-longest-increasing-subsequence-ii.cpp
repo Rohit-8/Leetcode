@@ -1,50 +1,49 @@
-class MaxSegmentTree {
- public:
-  int n;
-  vector<int> tree;
-  MaxSegmentTree(int n_) : n(n_) {
-    int size = (int)(ceil(log2(n)));
-    size = (2 * pow(2, size)) - 1;
-    tree = vector<int>(size);
-  }
-  
-  int max_value() { return tree[0]; }
-
-  int query(int l, int r) { return query_util(0, l, r, 0, n - 1); }
-
-  int query_util(int i, int qL, int qR, int l, int r) {
-    if (l >= qL && r <= qR) return tree[i];
-    if (l > qR || r < qL) return INT_MIN;
-
-    int m = (l + r) / 2;
-    return max(query_util(2 * i + 1, qL, qR, l, m), query_util(2 * i + 2, qL, qR, m + 1, r));
-  }
-
-  void update(int i, int val) { update_util(0, 0, n - 1, i, val); }
-  void update_util(int i, int l, int r, int pos, int val) {
-    if (pos < l || pos > r) return;
-    if (l == r) {
-      tree[i] = max(val, tree[i]);
-      return;
-    }
-
-    int m = (l + r) / 2;
-    update_util(2 * i + 1, l, m, pos, val);
-    update_util(2 * i + 2, m + 1, r, pos, val);
-    tree[i] = max(tree[2 * i + 1], tree[2 * i + 2]);
-  }
-};
-
 class Solution {
- public:
-  int lengthOfLIS(vector<int>& nums, int k) {
-    MaxSegmentTree tree(1e5 + 1);
-    for (int i : nums) {
-      int lower = max(0, i - k);
-      int cur = 1 + tree.query(lower, i - 1);
-      tree.update(i, cur);
+public:
+    /*
+        The number that can be behind number X is in the range [X - k, X - 1], and the best value for the LIS than ends with X is the maximum value in that range + 1, 1 for the current element X.
+So we use a segment tree to find the maximum value in the range and update the current value for further use and calculate the result with every iteration.
+    */
+    
+    // Here we are using elements as indexes of segment tree and its count(that is till now who are meeting condition till this number) as value of segment tree.
+    vector<int> seg;
+    //Segment tree to return maximum in a range
+    void upd(int i, int val, int ind, int low, int high) {
+        if(low == high) {
+            seg[ind] = val;
+            return;
+        }
+        int mid = low + (high - low) / 2;
+        if(i <= mid)
+            upd(i, val, 2 * ind + 1, low, mid);
+        else 
+            upd(i, val, 2 * ind + 2, mid + 1, high);
+        seg[ind] = max(seg[2 *ind + 1], seg[2 * ind + 2]);
     }
-
-    return tree.max_value();
-  }
+    
+    int query(int l, int r, int ind, int low, int high) {
+        // no overlap
+        if(low > r or high < l) return 0;
+        // complete overlap
+        if(low >= l and high <= r) return seg[ind];
+        // partial overlap
+        int mid = low + (high - low) / 2;
+        return max(query(l, r, 2 * ind + 1, low, mid), query(l, r, 2 * ind + 2, mid + 1, high));
+    }
+    
+    int lengthOfLIS(vector<int>& nums, int k) {
+        int x = 1;
+        while(x <= 200000) x *= 2;
+        seg.resize(2 * x, 0);
+        
+        int res = 1;
+        for(int i = 0; i < nums.size(); ++i) {
+            int left = max(1, nums[i] - k), right = nums[i] - 1;
+            int q = query(left, right, 0, 0, x - 1); // check for the element in the range of [nums[i] - k, nums[i] - 1] with the maximum value
+            cout <<nums[i] <<" " << q << endl;
+            res = max(res, q + 1);
+            upd(nums[i], q + 1, 0, 0, x - 1); //update current value
+        }
+        return res;
+    }
 };
