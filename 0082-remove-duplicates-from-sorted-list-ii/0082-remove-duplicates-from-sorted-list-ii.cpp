@@ -22,7 +22,7 @@ public:
             prev -> next = head;
             prev = prev -> next;
             if(head)
-            head = head -> next;
+                head = head -> next;
         }
         return t;
     }
