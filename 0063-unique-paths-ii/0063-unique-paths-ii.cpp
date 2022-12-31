@@ -14,32 +14,61 @@ public:
         // vector<vector<int>> dp(a.size() + 1, vector<int> (a[0].size() + 1, -1));
         
         // return helper(a, 0, 0, dp);
+        
         ///////////// method 2 ///////////////
+//         int n = a.size(), m = a[0].size();
+//         if(a[n - 1][m - 1] or a[0][0])
+//             return 0;
+//         vector<vector<int>> dp(a.size() + 1, vector<int> (a[0].size() + 1, 0));
+//         dp[0][0] = 1;
+//         for(int i = 1; i < m; i++){
+//             if(a[0][i] == 1)
+//                 dp[0][i] = 0;
+//             else dp[0][i] = dp[0][i - 1];
+//         }
+//         for(int i = 1; i < n; i++){
+//             if(a[i][0] == 1)
+//                 dp[i][0] = 0;
+//             else dp[i][0] = dp[i - 1][0];
+//         }
+        
+//         for(int i = 1; i < n; i++){
+//             for(int j = 1; j < m; j++){
+//                 if(a[i][j] == 1){
+//                     dp[i][j] = 0;
+//                 }
+//                 else dp[i][j] = dp[i - 1][j] + dp[i][j - 1];
+//             }
+//         }
+        
+//         return dp[n - 1][m - 1];
+        
+        ///////// method 3 space memoization///////////////
         int n = a.size(), m = a[0].size();
-        if(a[n - 1][m - 1] or a[0][0])
-            return 0;
-        vector<vector<int>> dp(a.size() + 1, vector<int> (a[0].size() + 1, 0));
-        dp[0][0] = 1;
+        if(a[0][0]) return 0;
+        vector<int> dp(m, 0);
+        dp[0] = 1;
         for(int i = 1; i < m; i++){
             if(a[0][i] == 1)
-                dp[0][i] = 0;
-            else dp[0][i] = dp[0][i - 1];
-        }
-        for(int i = 1; i < n; i++){
-            if(a[i][0] == 1)
-                dp[i][0] = 0;
-            else dp[i][0] = dp[i - 1][0];
+                dp[i] = 0;
+            else dp[i] = dp[i - 1];
         }
         
         for(int i = 1; i < n; i++){
-            for(int j = 1; j < m; j++){
-                if(a[i][j] == 1){
-                    dp[i][j] = 0;
+            vector<int> v(m, 0);
+            for(int j = 0; j < m; j++){
+                if(a[i][j] == 1)
+                    v[j] = 0;
+                else if(j == 0){
+                    v[j] = dp[j];
                 }
-                else dp[i][j] = dp[i - 1][j] + dp[i][j - 1];
+                else {
+                    v[j] = v[j - 1] + dp[j];
+                }
             }
+            dp = v;
         }
         
-        return dp[n - 1][m - 1];
+        return dp[m - 1];
     }
 };
