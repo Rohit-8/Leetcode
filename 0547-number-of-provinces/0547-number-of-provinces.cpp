@@ -33,12 +33,12 @@ public:
             }
         }
         
-        unordered_set<int> st;
+        int ans = 0;
         for(int i = 1; i <= a.size(); i++){
             int x = parp(i);
-            st.insert(x);
+            if(x == i) ans ++;
         }
         
-        return st.size();
+        return ans;
     }
 };
