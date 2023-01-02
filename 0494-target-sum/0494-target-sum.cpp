@@ -9,7 +9,7 @@ public:
         if((sum + t) % 2) return 0;
         sum = (sum + t) / 2;
         if(sum < 0)
-            sum += 1000;
+            return 0;
         vector<vector<int>> dp(n + 1, vector<int> (sum + 1, 0));
         // dp[0][0] = 1;
         int mod = 1000000007;
