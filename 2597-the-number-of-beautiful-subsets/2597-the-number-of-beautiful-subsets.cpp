@@ -5,10 +5,8 @@ public:
             return 0;
         
         int sum = res(a, i + 1, k, v);
-        for(int j = 0; j < v.size(); j++){
-            if(abs(a[i] - v[j]) == k)
-                return sum;
-        }
+        if(binary_search(v.begin(), v.end(), a[i] - k) == 1)
+            return sum;
         
         v.push_back(a[i]);
         sum += 1 + res(a, i + 1, k, v);
@@ -17,6 +15,7 @@ public:
     }
     int beautifulSubsets(vector<int>& a, int k) {
         vector<int> v;
+        sort(a.begin(), a.end());
         return res(a, 0, k, v);
     }
 };
