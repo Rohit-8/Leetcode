@@ -1,17 +1,18 @@
 class Solution {
 public:
-    int res(TreeNode* root, int &ans){
-        if(root == NULL) return 0;
+    int solve(TreeNode* root, int &ans){
+        if(root == NULL)
+            return 0;
+        int left = solve(root -> left, ans);
+        int right = solve(root -> right, ans);
         
-        int x = root -> val;
-        int left = res(root -> left, ans);
-        int right = res(root -> right, ans);
-        ans = max({ans, x, x + left, x + right, x + left + right});
-        return max({x, x + left, x + right});
+        ans = max({ans, root -> val, root -> val + left, root -> val + right, left + right + root -> val});
+        return max({root -> val, root -> val + left, root -> val + right});
     }
+    
     int maxPathSum(TreeNode* root) {
         int ans = INT_MIN;
-        res(root, ans);
+        solve(root, ans);
         return ans;
     }
 };
