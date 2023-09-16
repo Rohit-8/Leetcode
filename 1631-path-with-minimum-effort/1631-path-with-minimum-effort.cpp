@@ -35,8 +35,6 @@ public:
             f = false;
             vector<vector<int>> vis(a.size(), vector<int> (a[0].size(), 0));
             res(a, 0, 0, mid, a[0][0], vis);
-            // vector<vector<int>> x(a.size(), vector<int> (a[0].size(), -1));
-            // res(a, 1, 0, mid, a[0][0], x);
             
             if(f) ans = mid, r = mid - 1;
             else l = mid + 1;
